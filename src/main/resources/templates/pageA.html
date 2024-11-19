@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul data-th-each = "country : ${countryList}">
+        <li data-th-text = "${country.name}"></li>
+        <ol data-th-each = "metric : ${metricList}">
+            <li>
+                <!--this is for using PATH VARIABLE-->
+
+                <!--a data-th-href = "@{/weather/country/{country}/metrics/{metric} (country=${country.name}, metric= ${metric})}">
+                    <span data-th-text= "${metric}"></span>
+                </a-->
+
+
+                <!--this is for using QUERY STRING-->
+
+                <a data-th-href = "@{/weather (country=${country.name}, metrics= ${metric})}">
+                    <span data-th-text= "${metric}"></span>
+                </a>
+            </li>
+        </ol>
+    </ul>
+</body>
+</html>
