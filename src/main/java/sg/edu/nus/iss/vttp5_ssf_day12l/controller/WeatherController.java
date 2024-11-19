@@ -43,7 +43,6 @@ public class WeatherController {
 
         model.addAttribute("country", country);
         model.addAttribute("metrics", metrics);
-
         return "weather";
     }
 
@@ -56,7 +55,25 @@ public class WeatherController {
         model.addAttribute("countryList", countryList);
         model.addAttribute("metricList", units);
 
-        return "pagea";
+        return "pageA";
+    }
+
+
+    @GetMapping("/formA")
+    public String showForm(Model model) {
+        return "formA";
+    }
+    
+    @PostMapping("/formA")
+    public String handlePageA(@RequestBody MultiValueMap<String, String> form) {
+
+        // Map<String, String> formData = new HashMap<>();
+        
+        for(String str: form.keySet()) {
+            System.out.println(str + ">>> " + form.getFirst(str));
+        }
+        
+        return "formA";
     }
 
 
