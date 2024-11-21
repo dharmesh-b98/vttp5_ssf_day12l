@@ -7,10 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(path="/", method = RequestMethod.GET)
+@RequestMapping(path="", method = RequestMethod.GET)
 public class HomeController {
     
-    @RequestMapping(path = "/", method = RequestMethod.GET)
+    @RequestMapping(path = "", method = RequestMethod.GET)
     public String getHomePage(Model model){
 
         Calendar calendar = Calendar.getInstance();

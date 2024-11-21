@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
-@RequestMapping(path = "/weather", method = RequestMethod.GET)
+@RequestMapping(path = "/weather")
 public class WeatherController {
 
     @Autowired
