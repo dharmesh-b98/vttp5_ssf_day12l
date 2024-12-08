@@ -1,22 +1,17 @@
 package sg.edu.nus.iss.vttp5_ssf_day12l.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import sg.edu.nus.iss.vttp5_ssf_day12l.model.Country;
 import sg.edu.nus.iss.vttp5_ssf_day12l.service.*;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -64,16 +59,20 @@ public class WeatherController {
         return "formA";
     }
     
-    @PostMapping("/formA")
-    public String handlePageA(@RequestBody MultiValueMap<String, String> form) {
-
-        // Map<String, String> formData = new HashMap<>();
+    @PostMapping("/formA") //getting info from a form //NOT getting as an object
+    public String handlePageA(@RequestBody MultiValueMap<String, String> form, Model model) {
         
         for(String str: form.keySet()) {
             System.out.println(str + ">>> " + form.getFirst(str));
         }
+
+        String city = form.getFirst("city");
+        String temperature = form.getFirst("temperature");
         
-        return "formA";
+        model.addAttribute("city", city);
+        model.addAttribute("temperature", temperature);
+
+        return "temperature";
     }
 
 

@@ -22,8 +22,8 @@
 
             <tbody>
                 <tr data-th-each = "item, status : ${itemList}">
-                    <td data-th-text = "${item.itemName}"></td>
-                    <td data-th-text = "${item.itemQuantity}"></td>
+                        <td data-th-text = "${item.itemName}" data-th-class="${status.odd}? text-info: text-success"></td>
+                        <td data-th-text = "${item.itemQuantity}" data-th-class="${status.odd}? text-info: text-success"></td>
                 </tr>
             </tbody>
 
